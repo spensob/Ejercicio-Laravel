@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('oficinas.start');
-});
+Route::get('/', [OficinasController::class, "index"]);
 
 Route::resource('oficinas', controller: OficinasController::class);
 Route::resource('oficinas.empleados', EmpleadosController::class);
