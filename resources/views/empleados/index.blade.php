@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Empleados de {{ $oficina->nombre }}</h1>
+        <h1 class="text-center m-5">Empleados de {{ $oficina->nombre }}</h1>
         <a href="{{ route('oficinas.empleados.create', $oficina) }}">Añadir empleado</a>
         <a href="{{ route('oficinas.index') }}">Volver</a>
         

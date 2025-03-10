@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Detalles de la oficina</h1>
+        <h1 class="text-center m-5">Detalles de la oficina</h1>
         <div class="card">
             <h2>{{ $oficina->nombre }}</h2>
             <p><b>Dirección:</b> {{ $oficina->direccion }}</p>

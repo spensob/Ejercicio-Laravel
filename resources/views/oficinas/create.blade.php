@@ -14,7 +14,7 @@
 
 <body>
     <div class="container">
-        <h1>Añadir oficina</h1>
+        <h1 class="text-center m-5">Añadir oficina</h1>
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{$error}}</li>
@@ -22,14 +22,15 @@
         </ul>
         <form action="{{ route('oficinas.store') }}" method="POST">
             @csrf
-
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" value="{{ old('nombre') }}" required>
-
-            <label for="direccion">Dirección</label>
-            <input type="text" id="direccion" name="direccion" value="{{ old('direccion') }}">
-
-            <button type="submit">Crear oficina</button>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                <input type="text" class="form-control" name="nombre" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Dirección</label>
+                <input type="text" name="direccion" class="form-control" id="exampleInputPassword1">
+            </div>
+            <button type="submit" class="btn btn-primary">Crear oficina</button>
         </form>
     </div>
 </body>

@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Listado de oficinas</h1>
+        <h1 class="text-center m-5">Listado de oficinas</h1>
         <a href="{{ route('oficinas.create') }}">Crear nueva oficina</a>
         @if(session('success'))
         <div class="alert alert-success">

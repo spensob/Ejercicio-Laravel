@@ -12,36 +12,50 @@
 </head>
 <body>
     <div class="container">
-        <h1>Añadir empleado a {{ $oficina->nombre }}</h1>
+        <h1 class="text-center m-5">Añadir empleado a {{ $oficina->nombre }}</h1>
         <ul>
             @foreach ($errors->all() as $error)
-                <li>{{$error}}</li>
+                <li class="bg-primary m-2 text-white p-2">{{$error}}</li>
             @endforeach
         </ul>
-        <form action="{{ route('oficinas.empleados.store', $oficina) }}" method="POST">
+        <form action="{{ route('oficinas.empleados.store', $oficina) }}" method="POST" class="needs-validation" novalidate>
             @csrf
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" value="{{ old('nombre') }}" required>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" value="{{ old('nombre') }}" required>
+            </div>
 
-            <label for="apellido1">Primer apellido</label>
-            <input type="text" id="apellido1" name="apellido1" value="{{ old('apellido1') }}" required>
+            <div class="mb-3">
+                <label for="apellido1" class="form-label">Primer apellido</label>
+                <input type="text" class="form-control" id="apellido1" name="apellido1" value="{{ old('apellido1') }}" required>
+            </div>
 
-            <label for="apellido2">Segundo apellido</label>
-            <input type="text" id="apellido2" name="apellido2" value="{{ old('apellido2') }}">
+            <div class="mb-3">
+                <label for="apellido2" class="form-label">Segundo apellido</label>
+                <input type="text" class="form-control" id="apellido2" name="apellido2" value="{{ old('apellido2') }}">
+            </div>
 
-            <label for="rol">Rol</label>
-            <input type="text" id="rol" name="rol" value="{{ old('rol') }}">
+            <div class="mb-3">
+                <label for="rol" class="form-label">Rol</label>
+                <input type="text" class="form-control" id="rol" name="rol" value="{{ old('rol') }}">
+            </div>
 
-            <label for="fecha_nacimiento">Fecha de nacimiento (YYYY-MM-DD)</label>
-            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}">
+            <div class="mb-3">
+                <label for="fecha_nacimiento" class="form-label">Fecha de nacimiento (YYYY-MM-DD)</label>
+                <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}">
+            </div>
 
-            <label for="dni">DNI</label>
-            <input type="text" id="dni" name="dni" value="{{ old('dni') }}" required>
+            <div class="mb-3">
+                <label for="dni" class="form-label">DNI</label>
+                <input type="text" class="form-control" id="dni" name="dni" value="{{ old('dni') }}" required>
+            </div>
 
-            <label for="email">Email</label>
-            <input type="text" id="email" name="email" value="{{ old('email') }}" required>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required>
+            </div>
 
-            <button type="submit">Añadir empleado</button>
+            <button type="submit" class="btn btn-primary">Añadir empleado</button>
         </form>
     </div>
 </body>

@@ -31,8 +31,19 @@ class EmpleadosController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Oficina $oficina)
+    public function store(Request $request, Oficina $oficina, Empleado $empleado)
     {
+
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'apellido1' => 'required|string|max:255',
+            'apellido2' => 'nullable|string|max:255',
+            'rol' => 'nullable|string|max:255',
+            'fecha_nacimiento' => 'nullable|date',
+            'dni' => 'required|string|max:20|unique:empleados,dni,' . $empleado->id,
+            'email' => 'required|email|max:255|unique:empleados,email,' . $empleado->id,
+        ]);
+
 
         $empleado = new Empleado($request->all());
         $empleado->oficina_id = $oficina->id;
@@ -63,11 +74,19 @@ class EmpleadosController extends Controller
      */
     public function update(Request $request, Oficina $oficina, Empleado $empleado)
     {
-        $empleado->update($request->all());
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'apellido1' => 'required|string|max:255',
+            'apellido2' => 'nullable|string|max:255',
+            'rol' => 'nullable|string|max:255',
+            'fecha_nacimiento' => 'nullable|date',
+            'dni' => 'required|string|max:20|unique:empleados,dni,' . $empleado->id,
+            'email' => 'required|email|max:255|unique:empleados,email,' . $empleado->id,
+        ]);
 
+        $empleado->update($request->all());
         return redirect()->route('oficinas.empleados.index', $oficina)->with('success', 'Empleado actualizado con éxito.');
     }
-
 
     /**
      * Remove the specified resource from storage.

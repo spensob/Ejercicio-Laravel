@@ -13,10 +13,10 @@
 </head>
 <body>
     <div class="container">
-        <h1>Editar empleado</h1>
+        <h1 class="text-center m-5">Editar empleado</h1>
         <ul>
             @foreach ($errors->all() as $error)
-                <li>{{$error}}</li>
+                <li class="bg-primary m-2 text-white p-2">{{$error}}</li>
             @endforeach
         </ul>
         <form action="{{ route('oficinas.empleados.update', [$oficina, $empleado]) }}" method="POST">
